@@ -33,6 +33,7 @@ class Users extends Component {
 		const { items } = this.store.appState;
 		const {path,url}=this.props.match;
 		const db = window.db;
+
 		
 		
 		return (
@@ -42,6 +43,12 @@ class Users extends Component {
 					Posts are fetched from jsonplaceholder.typicode.com
 				</p>
 				<p>{url}</p>
+
+				<Link to={`${url}/new`}>
+										<h5>
+						    				new
+						  				</h5>
+										</Link>
 				<hr />
 				
 				<ReactTable

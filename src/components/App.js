@@ -73,6 +73,7 @@ export default class App extends Component {
 						<LazyRoute {...props} component={import("./User")} />
 					)}
 				/>
+				
 				<Route
 					exact
 					path="/login"

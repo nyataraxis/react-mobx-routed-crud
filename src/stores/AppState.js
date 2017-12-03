@@ -85,7 +85,7 @@ export default class AppState {
     this.items = window.db;
   }
   @action initUser(id) {
-    if(id != null){
+    if(window.db[id]){
       this.item = window.db[id];
       this.isNew = false;
     } else {

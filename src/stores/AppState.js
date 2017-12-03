@@ -85,10 +85,10 @@ export default class AppState {
     this.items = window.db;
   }
   @action initUser(id) {
-    /*if(id != null){
+    if(id != null){
       this.item = window.db[id];
       this.isNew = false;
-    } else {*/
+    } else {
       let gu = this.guidGen;
       this.isNew = true;
       this.item = {
@@ -97,7 +97,7 @@ export default class AppState {
       email: '',
       age: 0
       }
-    /*}*/
+    }
   }
   @action delItem(id){
     window.db.splice(id, 1);

@@ -3,8 +3,6 @@ import { inject, observer } from "mobx-react";
 import { Match, Link } from "react-router-dom";
 import ReactTable from "react-table";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import Protected from "./Protected";
-import DataWrapper from "./DataWrapper";
 import "react-table/react-table.css";
 
 @inject("store")

@@ -3,8 +3,6 @@ import { inject, observer } from "mobx-react";
 import { Link, Redirect } from "react-router-dom";
 import { FormControl, FormGroup, ControlLabel, HelpBlock} from "react-bootstrap";
 
-import DataWrapper from "./DataWrapper";
-import Protected from "./Protected";
 
 @inject("store")
 @observer
@@ -19,7 +17,7 @@ export default class User extends Component {
 			console.log(this.props);
 			let pathname = this.props.match.url;
 			let id = this.props.match.params.id ? this.props.match.params.id : null;
-			
+
 			this.store.appState.initUser(id);
 
 

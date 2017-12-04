@@ -7,4 +7,5 @@ to localhost:1234 for the minified production bundle.
 ### Todo
 
 - [X] maybe manipulating through fake json rest api?
-- [X] cleanup
+
+- [X] maybe add TS support?

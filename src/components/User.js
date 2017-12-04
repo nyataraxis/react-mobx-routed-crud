@@ -92,19 +92,15 @@ export default class User extends Component {
 				          placeholder="Age"
 				          onChange={this.handleChange.bind(this)}
 				        />
-				        <button onClick={this.onSave.bind(this)}>Save</button>
-        				<h1>{item.name && item.name.first} {item.name && item.name.last}</h1>
-						<p>email: {item.email}</p>
-                        <p>GUID: {item.guid}</p>
-                        <p>Age: {item.age}</p>
-						<p>hih</p>
         				</FormGroup>
-        				        <FormGroup>
-							      <ControlLabel>GUID</ControlLabel>
-							      <FormControl.Static>
-							        {item.guid}
-							      </FormControl.Static>
-							    </FormGroup>
+				        <FormGroup>
+						      <ControlLabel>GUID</ControlLabel>
+						      <FormControl.Static>
+						        {item.guid}
+						      </FormControl.Static>
+					    </FormGroup>
+					    
+				        <button onClick={this.onSave.bind(this)}>Save</button>
       				</form>
 				}
 

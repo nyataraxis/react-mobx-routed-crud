@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { Match, Link } from "react-router-dom";
 import ReactTable from "react-table";
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import "react-table/react-table.css";
 
 @inject("store")
@@ -15,7 +14,6 @@ class Users extends Component {
 	componentDidMount() {
          	console.log(this.props);
 			this.store.appState.initUsers();
-			/*this.store.fetchData(pathname, id);*/
 		}
 
 		componentWillUnmount() {
@@ -37,26 +35,18 @@ class Users extends Component {
 		return (
 			<div className="page posts">
 				<h1>Users</h1>
-				<p className="subheader">
-					Posts are fetched from jsonplaceholder.typicode.com
-				</p>
-				<p>{url}</p>
-
-				<Link to={`${url}/new`}>
-										<h5>
-						    				new
-						  				</h5>
-										</Link>
 				<hr />
-				
+				<Link className="button" to={`${url}/new`}>new</Link>
+				<br />
 				<ReactTable
 				data={items}
 				columns={
 					[ 
 					{
 						Header: "ID",
-						Cell:row => <span>{row.index}</span>,
-						maxWidth: 80
+						Cell:row => <span className="maincell"><h5>{row.index}</h5></span>,
+						maxWidth: 30
+
 
 					},
 					{
@@ -65,11 +55,20 @@ class Users extends Component {
 						minWidth: 250
 					},
 					{
-						Header: "Name",
+						Header: "First name",
 						id: 'first',
 						accessor: d => d.name.first,
+						Cell:row => <span className="maincell"><h5>{row.value}</h5></span>,
 						
-						maxWidth: 250
+						maxWidth: 200
+					},
+					{
+						Header: "Last name",
+						id: 'last',
+						accessor: d => d.name.last,
+						Cell:row => <span className="maincell"><h5>{row.value}</h5></span>,
+						
+						maxWidth: 200
 					},
 					{
 						Header: "Email",
@@ -80,18 +79,20 @@ class Users extends Component {
     					Header: "Actions",
     					columns: [
       					{
-        					Header: "Edit",
+        					Header: "",
    						    Cell: row =>
-										<Link to={`${url}/${row.index}`}>
+										<Link className="maincell" to={`${url}/${row.index}`}>
 										<h5>
 						    				Edit
 						  				</h5>
-										</Link>
+										</Link>,
+							maxWidth: 40
       					},
       					{
-        					Header: "Delete",
+        					Header: "",
         					Cell: row =>
-        					<button onClick={this.delName.bind(this, row.index)}> x </button>
+        					<span className="maincell"><button onClick={this.delName.bind(this, row.index)}> x </button></span>,
+        					maxWidth: 30
       					}
     					]	
   					}

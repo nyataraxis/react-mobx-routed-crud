@@ -32,8 +32,6 @@ export default class AppState {
     console.log(pep);
     if(data){
       window.db = data;
-//      window.db = data.map((reg, key) =>());
-//      this.setData(data,pep);  
     }
     
   }

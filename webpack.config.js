@@ -9,11 +9,12 @@ module.exports = {
         "webpack/hot/only-dev-server",
         "babel-polyfill",
         "whatwg-fetch",
-        "./src/index"
+        "./src/index",
+        "./users"
     ],
     devServer: {
         hot: true,
-        contentBase: path.resolve(__dirname, "dist"),
+        contentBase: path.resolve(__dirname, "dist-dev"),
         port: 3000,
         host: "0.0.0.0",
         publicPath: "/",
@@ -21,9 +22,10 @@ module.exports = {
         disableHostCheck: true
     },
     output: {
-        path: path.join(__dirname, "dist"),
+        path: path.join(__dirname, "dist-dev"),
         publicPath: "/",
         filename: "app.[hash].js"
+		
     },
     devtool: "eval",
     module: {
@@ -72,6 +74,10 @@ module.exports = {
                     }
                 ]
             },
+			{
+		       test: /\.json/,
+		       loader: "json-loader"
+		   },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: "url-loader?limit=10000&mimetype=application/font-woff"
